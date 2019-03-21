@@ -4,10 +4,10 @@ import com.jaywade.sm.entity.Department;
 
 import java.util.List;
 
-public interface DepartmentService {
-    void add(Department department);
+public interface StaffService {
+    void add(Staff staff);
     void remove(Integer id);
-    void edit(Department department);
-    Department get(Integer id);
-    List<Department> getAll();
+    void edit(Staff staff);
+    Staff get(Integer id);
+    List<Staff> getAll();
 }
