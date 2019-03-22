@@ -14,6 +14,7 @@
         <result property="leaveTime" column="leave_time" javaType="java.util.Date"/>
         <result property="bornDate" column="born_date" javaType="java.util.Date"/>
         <result property="info" column="info" javaType="String"/>
+        <association property="department" column="did" javaType="com.jaywade.sm.entity.Department" select="com.jaywade.sm.dao.DepartmentDao.selectById" />
     </resultMap>
 
     <insert id="insert" parameterType="com.jaywade.sm.entity.Staff" useGeneratedKeys="true">

@@ -5,14 +5,16 @@ import com.jaywade.sm.dao.DepartmentDao;
 import com.jaywade.sm.entity.Department;
 import com.jaywade.sm.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 @Service("departmentService")
 public class DepartmentServiceImpl implements DepartmentService {
 
-    @Autowired
+    @Resource(name="departmentDao")
     private DepartmentDao departmentDao;
 
     @Override

@@ -1,46 +1,50 @@
 package com.jaywade.sm.service.impl;
 
-
-import com.jaywade.sm.dao.DepartmentDao;
-import com.jaywade.sm.entity.Department;
-import com.jaywade.sm.service.DepartmentService;
+import com.jaywade.sm.dao.StaffDao;
+import com.jaywade.sm.entity.Staff;
+import com.jaywade.sm.service.StaffService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
-@Service("departmentService")
-public class DepartmentServiceImpl implements DepartmentService {
-
-    @Autowired
-    private DepartmentDao departmentDao;
+@Service("staffService")
+public class StaffServiceImpl implements StaffService {
+    @Resource(name="staffDao")
+    private StaffDao staffDao;
 
     @Override
-    public void add(Department department) {
-        departmentDao.insert(department);
+    public void add(Staff staff) {
+        staff.setPassword("123456");
+        staff.setWorkTime(new Date());
+        staff.setStatus("normal");
+        staffDao.insert(staff);
 
     }
 
     @Override
     public void remove(Integer id) {
-        departmentDao.delete(id);
+        staffDao.delete(id);
 
     }
 
     @Override
-    public void edit(Department department) {
-        departmentDao.update(department);
+    public void edit(Staff staff) {
+        staffDao.update(staff);
 
     }
 
     @Override
-    public Department get(Integer id) {
-        return departmentDao.selectById(id);
+    public Staff get(Integer id) {
+        return staffDao.selectById(id);
     }
 
     @Override
-    public List<Department> getAll() {
-        return departmentDao.selectAll();
+    public List<Staff> getAll() {
+        return staffDao.selectAll();
     }
 
 }

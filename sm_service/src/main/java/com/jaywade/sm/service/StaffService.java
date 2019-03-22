@@ -1,6 +1,7 @@
 package com.jaywade.sm.service;
 
 import com.jaywade.sm.entity.Staff;
+import com.jaywade.sm.entity.Department;
 
 import java.util.List;
 

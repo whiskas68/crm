@@ -3,18 +3,19 @@ package com.jaywade.sm.entity;
 import java.util.Date;
 
 public class Staff {
-  private Integer id;
-  private String account;
-  private String password;
-  private String status;
-  private Integer did;
-  private String name;
-  private String sex;
-  private String idNumber;
-  private Date workTime;
-  private Date leaveTime;
-  private Date bornDate;
-  private String info;
+    private Integer id;
+    private String account;
+    private String password;
+    private String status;
+    private Integer did;
+    private String name;
+    private String sex;
+    private String idNumber;
+    private Date workTime;
+    private Date leaveTime;
+    private Date bornDate;
+    private String info;
+    private Department department;
 
     public Department getDepartment() {
         return department;
@@ -23,8 +24,6 @@ public class Staff {
     public void setDepartment(Department department) {
         this.department = department;
     }
-
-    private Department department;
 
     public Integer getId() {
         return id;
@@ -121,4 +120,5 @@ public class Staff {
     public void setInfo(String info) {
         this.info = info;
     }
+
 }
