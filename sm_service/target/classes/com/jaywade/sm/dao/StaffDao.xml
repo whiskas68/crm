@@ -18,13 +18,13 @@
     </resultMap>
 
     <insert id="insert" parameterType="com.jaywade.sm.entity.Staff" useGeneratedKeys="true">
-        insert into staff(name,address) values(#{name},#{address})
+        insert into staff(account,password,status,did,name,sex,id_number,work_time,leave_time,born_date,info) values(#{account},#{password},#{status},#{did},#{name},#{sex},#{idNumber},#{workTime},#{leaveTime},#{bornDate},#{info})
     </insert>
     <delete id="delete" parameterType="Integer">
         delete from staff where id=#{id}
     </delete>
     <update id="update" parameterType="com.jaywade.sm.entity.Staff">
-        update staff set name=#{name},address=#{address} where id=#{id}
+        update staff set account=#{account},password=#{password},status=#{status},did=#{did},name=#{name},sex=#{sex},id_number=#{idNumber},work_time=#{workTime},leave_time=#{leaveTime},born_date=#{bornDate},info=#{info} where id=#{id}
     </update>
     <select id="selectById" parameterType="Integer" resultMap="resultMap">
         select * from staff where id=#{id}

@@ -102,14 +102,14 @@ public class StaffController {
     public void remove(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Integer id = Integer.parseInt(request.getParameter("id"));
         staffService.remove(id);
-        response.sendRedirect("list.do");
+        response.sendRedirect("list.do");  //chongdingxiangdao : list.do
     }
 
     public void detail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Integer id = Integer.parseInt(request.getParameter("id"));
         Staff staff = staffService.get(id);
         request.setAttribute("OBJ",staff);
-        request.getRequestDispatcher("../staff_detail.jsp").forward(request,response);
+        request.getRequestDispatcher("../staff_detail.jsp").forward(request,response); // zhuanfadao: staff_detail.jsp
     }
 
 }
