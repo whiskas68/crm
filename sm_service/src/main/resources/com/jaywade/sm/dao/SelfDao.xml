@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.4//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jaywade.sm.dao.SelfDao">
 
-    <select id="selectByAccount" parameterType="String" resultMap="com.jaywade.sm.dao.StaffDao.StaffDaoResultMap">
+    <select id="selectByAccount" parameterType="String" resultMap="com.jaywade.sm.dao.StaffDao.resultMap">
         select * from staff where account = #{account}
     </select>
 

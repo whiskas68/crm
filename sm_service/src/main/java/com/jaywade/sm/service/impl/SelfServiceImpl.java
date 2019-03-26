@@ -11,7 +11,7 @@ import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
 
-@Service("staffService")
+@Service("selfService")
 public class SelfServiceImpl implements SelfService {
 
     @Resource(name="selfDao")
