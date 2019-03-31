@@ -2,11 +2,11 @@ package com.jaywade.sm.entity;
 
 import java.util.Date;
 
-public class Log {
+public class Log{
     private Date oprTime;
     private String type;
     private String operator;
-    private String module;
+    private String moudle;
     private String operation;
     private String result;
 
@@ -34,12 +34,12 @@ public class Log {
         this.operator = operator;
     }
 
-    public String getModule() {
-        return module;
+    public String getMoudle() {
+        return moudle;
     }
 
-    public void setModule(String moudle) {
-        this.module = module;
+    public void setMoudle(String moudle) {
+        this.moudle = moudle;
     }
 
     public String getOperation() {

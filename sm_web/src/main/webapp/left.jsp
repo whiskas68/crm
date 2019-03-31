@@ -44,20 +44,6 @@ $(function(){
 	    </ul>
         </li>
         <li>
-            <div class="nav_m">
-                <span><a>用户权限</a></span>
-                <i>&nbsp;</i>
-            </div>
-            <ul class="erji">
-                <li>
-                    <span><a href="#" target="main">角色设置</a></span>
-                </li>
-                <li>
-                    <span><a href="#" target="main">功能权限</a></span>
-                </li>
-            </ul>
-        </li>
-        <li>
         <li class="now">
             <div class="nav_m">
                 <span><a>个人中心</a></span>

@@ -6,6 +6,7 @@ import com.jaywade.sm.service.LogService;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -17,11 +18,12 @@ import javax.servlet.http.HttpSession;
 public class LogAdvice {
 
     @Autowired
+    @Qualifier("logService")
     private LogService logService;
-    @After("execution(* com.jaywade.sm.controller.*.*(..)) && !execution(* com.jaywade.sm.controller.SelfController.*(..)) && !execution(* com.jaywade.sm.controller.*.to*(..))")
+    @AfterReturning("execution(* com.jaywade.sm.controller.*.*(..)) && !execution(* com.jaywade.sm.controller.SelfController.*(..)) && !execution(* com.jaywade.sm.controller.*.to*(..))")
     public void operationLog(JoinPoint joinPoint){
         Log log = new Log();
-        log.setModule(joinPoint.getTarget().getClass().getSimpleName());
+        log.setMoudle(joinPoint.getTarget().getClass().getSimpleName());
         log.setOperation(joinPoint.getSignature().getName());
         HttpServletRequest request =(HttpServletRequest) joinPoint.getArgs()[0];
         HttpSession session = request.getSession();
@@ -35,7 +37,7 @@ public class LogAdvice {
     @AfterThrowing(throwing = "e",pointcut = "execution(* com.jaywade.sm.controller.*.*(..)) && !execution(* com.jaywade.sm.controller.SelfController.*(..))")
     public void systemLog(JoinPoint joinPoint,Throwable e){
         Log log = new Log();
-        log.setModule(joinPoint.getTarget().getClass().getSimpleName());
+        log.setMoudle(joinPoint.getTarget().getClass().getSimpleName());
         log.setOperator(joinPoint.getSignature().getName());
         HttpServletRequest request =(HttpServletRequest) joinPoint.getArgs()[0];
         HttpSession session = request.getSession();
@@ -59,7 +61,7 @@ public class LogAdvice {
 
     private void log(JoinPoint joinPoint) {
         Log log = new Log();
-        log.setModule(joinPoint.getTarget().getClass().getSimpleName());
+        log.setMoudle(joinPoint.getTarget().getClass().getSimpleName());
         log.setOperator(joinPoint.getSignature().getName());
         HttpServletRequest request =(HttpServletRequest) joinPoint.getArgs()[0];
         HttpSession session = request.getSession();

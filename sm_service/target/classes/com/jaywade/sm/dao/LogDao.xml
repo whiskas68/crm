@@ -5,13 +5,13 @@
         <result property="oprTime" column="opr_time" javaType="java.util.Date"/>
         <result property="type" column="type" javaType="String"/>
         <result property="operator" column="operator" javaType="String"/>
-        <result property="module" column="module" javaType="String"/>
-        <result property="operation" column="opration" javaType="String"/>
+        <result property="moudle" column="moudle" javaType="String"/>
+        <result property="operation" column="operation" javaType="String"/>
         <result property="result" column="result" javaType="String"/>
     </resultMap>
 
     <insert id="insert" parameterType="com.jaywade.sm.entity.Log">
-        insert into log values (#{oprTime},#{type},#{operator},#{module},#{operation},#{result});
+        insert into log (opr_time,type,operator,moudle,operation,result) values (#{oprTime},#{type},#{operator},#{moudle},#{operation},#{result});
     </insert>
 
     <select id="selectByType" parameterType="String" resultMap="resultMap">
